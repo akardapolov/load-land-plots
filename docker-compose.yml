@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  app:
+    container_name: app-load-land-plots
+    image: app-load-land-plots
+    build: ./
+    ports:
+      - "8888:8888"
+    depends_on:
+      - dbpostgresql
+  dbpostgresql:
+    container_name: dbpostgresql
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=load_land_plots

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: load_land_plots
+
+server:
+  port: 8888
+
