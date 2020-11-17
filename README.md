@@ -17,6 +17,8 @@
 3. В браузере набрать http://localhost:8888/ и загрузить файл кадастрового плана территории
 4. Проверить в БД наличие данных по земельным участкам
 
+При локальном запуске из IDEA в **Edit Configurations..** установить -Dspring.profiles.active=local в **VM Options:**
+
 ## Лицензия
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 

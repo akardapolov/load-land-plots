@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import ru.gov.rosreestr.estate.model.dto.Response;
 import ru.gov.rosreestr.estate.service.UploadService;
+import ru.gov.rosreestr.estate.utility.annotation.CustomExceptionHandler;
 
 @RestController
+@CustomExceptionHandler
 public class UploadController {
   private UploadService uploadService;
 
