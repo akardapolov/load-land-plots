@@ -12,7 +12,6 @@ import ru.rosreestr.artefacts.x.outgoing.kpt._10_0.KPT;
 
 @Service
 public class UploadService {
-
   private ParcelsTableRepository parcelsTableRepository;
   private Unmarshaller unmarshaller;
 
