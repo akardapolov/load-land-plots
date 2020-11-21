@@ -1,4 +1,4 @@
-package ru.gov.rosreestr.estate.exception;
+package ru.gov.rosreestr.estate.utility.exception;
 
 public class ServiceUploadException extends Exception {
 

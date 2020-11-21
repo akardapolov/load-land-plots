@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.gov.rosreestr.estate.model.dto.Response;
 import ru.gov.rosreestr.estate.model.entity.ParcelsTable;
 import ru.gov.rosreestr.estate.model.repository.ParcelsTableRepository;
+import ru.gov.rosreestr.estate.utility.exception.ServiceUploadException;
 import ru.rosreestr.artefacts.x.outgoing.kpt._10_0.KPT;
 
 @Service
@@ -23,10 +24,10 @@ public class UploadService {
 
   @Transactional
   public Response handleFileUpload(String fileName, MultipartFile fileContent)
-      throws ru.gov.rosreestr.estate.exception.ServiceUploadException {
+      throws ServiceUploadException {
 
     if (fileName == null || fileName.isEmpty()) {
-      throw new ru.gov.rosreestr.estate.exception.ServiceUploadException("Не указано имя файла");
+      throw new ServiceUploadException("Не указано имя файла");
     }
 
     if (!fileContent.isEmpty()) {
@@ -43,11 +44,11 @@ public class UploadService {
 
         return new Response("Вы успешно загрузили файл: " + fileName + " на сервер.. ");
       } catch (Exception e) {
-        throw new ru.gov.rosreestr.estate.exception.ServiceUploadException(
+        throw new ServiceUploadException(
             "Не удалось загрузить файл: " + fileName + " => " + e.getMessage());
       }
     } else {
-      throw new ru.gov.rosreestr.estate.exception.ServiceUploadException(
+      throw new ServiceUploadException(
           "Не удалось загрузить пустой файл: " + fileName);
     }
 

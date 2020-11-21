@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.gov.rosreestr.estate.model.dto.Response;
 import ru.gov.rosreestr.estate.service.UploadService;
 import ru.gov.rosreestr.estate.utility.annotation.CustomExceptionHandler;
+import ru.gov.rosreestr.estate.utility.exception.ServiceUploadException;
 
 @RestController
 @CustomExceptionHandler
@@ -20,7 +21,7 @@ public class UploadController {
 
   @PostMapping(value="/upload")
   public ResponseEntity<Response> handleFileUpload(@RequestParam("name") String fileName,
-      @RequestParam("file") MultipartFile fileContent) throws ru.gov.rosreestr.estate.exception.ServiceUploadException {
+      @RequestParam("file") MultipartFile fileContent) throws ServiceUploadException {
    return ResponseEntity.ok(uploadService.handleFileUpload(fileName, fileContent));
   }
 
